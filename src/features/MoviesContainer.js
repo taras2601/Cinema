@@ -20,8 +20,8 @@ export default class MoviesContainer extends Component {
         this.setState({search: value});
     };
 
-    setMovies = (mov) => {
-        this.setState({movies: mov});
+    setMovies = (movie) => {
+        this.setState({movies: movie});
     };
 
     searchMovies = () => {
