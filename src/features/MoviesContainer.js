@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
 import MoviesList from './MoviesList';
+const ENDPOINT = 'https://reactjs-cdp.herokuapp.com';
+const serialize = function(obj) {
+    var str = [];
+    for (var p in obj)
+        if (obj.hasOwnProperty(p)) {
+            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+        }
+    return str.join("&");
+};
 
 export default class MoviesContainer extends Component {
     state = {
@@ -11,15 +20,19 @@ export default class MoviesContainer extends Component {
         this.setState({search: value});
     };
 
-    setMovies = () => {
-        const movie = [{
-            "id":8388,
-            "title":"¡Three Amigos!",
-            "poster_path":"https://image.tmdb.org/t/p/w500/zuTwahw966MoFwD7B2SFujaT5yp.jpg",
-        }];
-        this.setState({movies: movie})
+    setMovies = (mov) => {
+        this.setState({movies: mov});
     };
-
+    
+    fetchMovies = (params = {sortOrder: 'desc'}) => {
+        const url = `${ENDPOINT}/movies?${serialize(params)}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(({data}) => {
+                this.setMovies(data);
+            });
+            console.log(url);
+    };
     
     render() {
         console.log(this.state.movies)
@@ -30,6 +43,7 @@ export default class MoviesContainer extends Component {
                     movies = {this.state.movies}
                     setSearch = {this.setSearch}
                     setMovies = {this.setMovies}
+                    fetchMovies = {this.fetchMovies}
                 />
             </div>
         );
