@@ -8,7 +8,7 @@ export default class MoviesList extends Component {
     };
 
     handlerClickSearch = () => {
-        
+        this.props.searchMovies();
     };
 
     render() {

@@ -23,6 +23,10 @@ export default class MoviesContainer extends Component {
     setMovies = (mov) => {
         this.setState({movies: mov});
     };
+
+    searchMovies = () => {
+
+    };
     
     fetchMovies = (params = {sortOrder: 'desc'}) => {
         const url = `${ENDPOINT}/movies?${serialize(params)}`;
@@ -43,6 +47,7 @@ export default class MoviesContainer extends Component {
                     movies = {this.state.movies}
                     setSearch = {this.setSearch}
                     setMovies = {this.setMovies}
+                    searchMovies = {this.searchMovies}
                     fetchMovies = {this.fetchMovies}
                 />
             </div>
