@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 export default class MoviesItem extends Component {
     render() {
         return (
             <div>
-                <img src={this.props.poster} alt={this.props.title} />
-                <h2>{this.props.title}</h2>
+                <div className='moviesItem'>
+                    <Link to='movies/:item'>
+                        <img src={this.props.poster} alt={this.props.title} />
+                        <h2>{this.props.title}</h2>
+                    </Link>
+                </div>
             </div>
         );
     }

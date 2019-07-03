@@ -25,7 +25,7 @@ export default class MoviesContainer extends Component {
     };
 
     searchMovies = () => {
-
+        this.fetchMovies({sortOrder: 'desc', searchBy: 'title', search: this.state.search});
     };
     
     fetchMovies = (params = {sortOrder: 'desc'}) => {

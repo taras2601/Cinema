@@ -16,7 +16,7 @@ export default class MoviesList extends Component {
             <div>
                 <input onChange={this.handlerChangeSearch} />
                 <button onClick={this.handlerClickSearch}>Search</button>
-                <div>
+                <div className='moviesList'>
                     {this.props.movies.map(item =>
                         <MoviesItem
                             key = {item.id} 
