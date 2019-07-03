@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class DetailePage extends Component {
     render() {
-        const { selectedMovie } = this.props;
+        const { selectedMovie, movies } = this.props;
         return (
             <div>
                 <div>
@@ -12,6 +12,7 @@ export default class DetailePage extends Component {
                     <h1>{selectedMovie.title}</h1>
                     <p>{selectedMovie.genre}</p>
                 </div>
+                <div>{movies}</div>
             </div>
         );
     }
