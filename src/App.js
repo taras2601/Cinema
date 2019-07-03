@@ -11,7 +11,7 @@ function App() {
             <div className="App">
                 <Switch>
                     <Route path="/" exact component={MoviesContainer} />
-                    <Route path="movies/:item" component={DetailPageContainer} />
+                    <Route path="/:item" component={DetailPageContainer} />
                 </Switch>
             </div>
         </Router>
