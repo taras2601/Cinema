@@ -10,7 +10,7 @@ export default class DetailePage extends Component {
                 </div>
                 <div>
                     <h1>{selectedMovie.title}</h1>
-                    <p>{selectedMovie.genre}</p>
+                    <p>{selectedMovie.genres}</p>
                     <p>{selectedMovie.overview}</p>
                 </div>
                 {/* <div className='moviesList'>

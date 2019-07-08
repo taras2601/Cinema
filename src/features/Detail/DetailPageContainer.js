@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import DetailPage from './DetailPage';
-const id = 389;
 
 export default class DetailPageContainer extends Component {
     state = {
@@ -12,12 +11,12 @@ export default class DetailPageContainer extends Component {
     };
 
     fetchMovies = () => {
+        const id = this.props.match.params.id;
         fetch(`https://reactjs-cdp.herokuapp.com/movies/${id}`)
             .then(res => res.json())
             .then(res => {
                 this.setSelectedMovie(res);
             });
-            console.log();
     };
 
     componentDidMount() {
@@ -25,7 +24,6 @@ export default class DetailPageContainer extends Component {
     };
         
     render() {
-        //const id = this.props.match.params;
         console.log(this.state.selectedMovie);
         return (
             <div>
