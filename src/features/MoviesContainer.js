@@ -39,7 +39,7 @@ export default class MoviesContainer extends Component {
     };
     
     render() {
-        console.log(this.state.movies)
+        //console.log(this.state.movies)
         return (
             <div>
                 <MoviesList 

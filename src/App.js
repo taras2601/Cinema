@@ -3,7 +3,6 @@ import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import MoviesContainer from './features/MoviesContainer';
 import DetailPageContainer from './features/DetailPageContainer';
-//import MoviesItem from './features/MoviesItem';
 
 function App() {
     return (
@@ -11,7 +10,7 @@ function App() {
             <div className="App">
                 <Switch>
                     <Route path="/" exact component={MoviesContainer} />
-                    <Route path="/:item" component={DetailPageContainer} />
+                    <Route path="/movies/:id" component={DetailPageContainer} />
                 </Switch>
             </div>
         </Router>
