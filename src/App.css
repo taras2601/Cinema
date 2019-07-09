@@ -30,6 +30,10 @@
   font-size: 12px;
 }
 
+.moviesItem p {
+  font-size: 10px;
+}
+
 .App {
   text-align: center;
 }

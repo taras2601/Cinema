@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MoviesList from './MoviesList';
-import DetailePage from '../Detail/DetailPage';
 const ENDPOINT = 'https://reactjs-cdp.herokuapp.com';
 const serialize = function(obj) {
     var str = [];

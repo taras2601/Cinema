@@ -18,6 +18,7 @@ export default class DetailePage extends Component {
                         <div className='moviesItem' key = {item.id}>
                             <img alt={item.title} src={item.poster_path} />
                             <h2>{item.title}</h2>
+                            <p>{item.genres.join(', ')}</p>
                         </div>
                     )}
                 </div>     
