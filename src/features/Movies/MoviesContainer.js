@@ -37,6 +37,10 @@ export default class MoviesContainer extends Component {
             });
             console.log(url);
     };
+
+    componentDidMount() {
+        this.fetchMovies();
+    }
     
     render() {
         return (

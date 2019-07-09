@@ -20,7 +20,7 @@ export default class DetailPageContainer extends Component {
         this.setState({movies: movies});
     };
 
-    fetchMovies = (params = {sortOrder: 'desc'}) => {
+    fetchMovies = () => {
         const id = this.props.match.params.id;
         fetch(`https://reactjs-cdp.herokuapp.com/movies/${id}`)
             .then(res => res.json())
