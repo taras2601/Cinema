@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class DetailePage extends Component {
     render() {
-        const { selectedMovie, movies } = this.props;
+        const { selectedMovie, movies, sortBy } = this.props;
         return (
             <div>
                 <div className='movieDetail'>
@@ -13,14 +13,14 @@ export default class DetailePage extends Component {
                     <p>{selectedMovie.genres}</p>
                     <p>{selectedMovie.overview}</p>
                 </div>
-                {/* <div className='moviesList'>
+                <div className='moviesList'>
                     {movies.map(item =>
                         <div className='moviesItem' key = {item.id}>
                             <img alt={item.title} src={item.poster_path} />
                             <h2>{item.title}</h2>
                         </div>
                     )}
-                </div> */}
+                </div>     
             </div>
         );
     }

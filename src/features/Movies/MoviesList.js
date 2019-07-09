@@ -22,7 +22,7 @@ export default class MoviesList extends Component {
                             key = {item.id} 
                             id = {item.id}
                             title = {item.title}
-                            genres = {item.genres.join(', ')}
+                            genres = {item.genres.join(',')}
                             poster = {item.poster_path}
                         />
                     )}
