@@ -1,39 +1,17 @@
-.moviesList {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.moviesItem {
-  width: 200px;
-  height: 300px;
-  margin-left: 5px;
-}
-
-.moviesItem img {
-  width: 80%;
+.movieDetail img{
+  width: 350px;
+  max-width: 100%;
   height: auto;
 }
 
-.movieDetail {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 450px;
+.moviesItem img {
+  width: 180px;
+  max-width: 100%;
+  height: auto;
+  max-height: 235px;
 }
 
-.movieDetail img {
-  width: 300px;
-}
-
-.moviesItem h2 {
-  font-size: 12px;
-}
-
-.moviesItem p {
-  font-size: 10px;
-}
-
-.App {
-  text-align: center;
+div > a, a:hover {
+  text-decoration:none;
+  color: black;
 }

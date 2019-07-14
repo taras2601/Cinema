@@ -12,15 +12,15 @@ export default class DetailPageContainer extends Component {
         this.setState({selectedMovie: data});
     };
 
-    setSortBy = (value) => {
-        this.setState({sortBy: value});
-    };
+    // setSortBy = (value) => {
+    //     this.setState({sortBy: value});
+    // };
 
     setMovies = (movies) => {
         this.setState({movies: movies});
     };
 
-    fetchMovies = () => {
+    fetchDetailMoviesAndFilterGenres = () => {
         const id = this.props.match.params.id;
         fetch(`https://reactjs-cdp.herokuapp.com/movies/${id}`)
             .then(res => res.json())
@@ -29,8 +29,7 @@ export default class DetailPageContainer extends Component {
                 return res;
             })
             .then(res => {
-                this.setSortBy(res.genres);
-                fetch(`https://reactjs-cdp.herokuapp.com/movies?sortOrder=desc&filter=${this.state.sortBy}`)
+                fetch(`https://reactjs-cdp.herokuapp.com/movies?sortOrder=desc&filter=${res.genres}`)
                     .then(res => res.json())
                     .then(({data}) => {
                         this.setMovies(data)
@@ -39,16 +38,16 @@ export default class DetailPageContainer extends Component {
     };
 
     componentDidMount() {
-        this.fetchMovies();
+        this.fetchDetailMoviesAndFilterGenres();
     };
         
     render() {
+        console.log(this.state.selectedMovie.genres);
         return (
             <div>
                 <DetailPage
                     selectedMovie = {this.state.selectedMovie}
                     movies = {this.state.movies}
-                    sortBy = {this.state.sortBy}
                     setSelectedMovie = {this.setSelectedMovie}
                 />
             </div>

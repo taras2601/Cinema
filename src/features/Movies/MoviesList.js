@@ -13,16 +13,22 @@ export default class MoviesList extends Component {
 
     render() {
         return (
-            <div>
-                <input onChange={this.handlerChangeSearch} />
-                <button onClick={this.handlerClickSearch}>Search</button>
-                <div className='moviesList'>
+            <div className='container'>
+                <div className='row justify-content-center mt-2'>
+                    <div className="col-sm-11">
+                        <input className='form-control' onChange={this.handlerChangeSearch} />
+                    </div>
+                    <div className="col-sm-1">
+                        <button className="btn btn-warning" onClick={this.handlerClickSearch}>Search</button>
+                    </div>
+                </div>
+                <div className='row justify-content-center'>
                     {this.props.movies.map(item =>
                         <MoviesItem
                             key = {item.id} 
                             id = {item.id}
                             title = {item.title}
-                            genres = {item.genres.join(',')}
+                            genres = {item.genres.join(' ')}
                             poster = {item.poster_path}
                         />
                     )}
