@@ -4,7 +4,6 @@ export default class DetailePage extends Component {
     render() {
         const { selectedMovie, movies } = this.props;
         console.log(selectedMovie);
-        //const genres = selectedMovie.genres.toString();
         return (
             <div className='container'>
                 <div className='row justify-content-center mt-4'>

@@ -13,6 +13,8 @@ const serialize = function(obj) {
 export default class MoviesContainer extends Component {
     state = {
         search: '',
+        searchBy: '',
+        sortBy: '',
         movies: [],
     }
 
@@ -25,7 +27,16 @@ export default class MoviesContainer extends Component {
     };
 
     searchMovies = () => {
-        this.fetchMovies({sortOrder: 'desc', searchBy: 'title', search: this.state.search});
+        this.fetchMovies({sortOrder: 'desc', sortBy: this.state.sortBy, searchBy: this.state.searchBy, search: this.state.search});
+    };
+
+    setSearchBy = (value) => {
+        this.setState({searchBy: value})
+    };
+
+    setSortBy = (value) => {
+        this.setState({sortBy: value});
+        this.searchMovies();
     };
     
     fetchMovies = (params = {sortOrder: 'desc'}) => {
@@ -48,8 +59,13 @@ export default class MoviesContainer extends Component {
                 <MoviesList 
                     search = {this.state.search}
                     movies = {this.state.movies}
+                    searchBy = {this.state.searchBy}
+                    sortBy = {this.state.sortBy}
+
                     setSearch = {this.setSearch}
                     setMovies = {this.setMovies}
+                    setSearchBy = {this.setSearchBy}
+                    setSortBy = {this.setSortBy}
                     searchMovies = {this.searchMovies}
                     fetchMovies = {this.fetchMovies}
                 />
