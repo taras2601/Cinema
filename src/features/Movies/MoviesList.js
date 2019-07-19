@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MoviesItem from './MoviesItem'
 
 export default class MoviesList extends Component {
-
+    
     handlerChangeSearch = (event) => {
         this.props.setSearch(event.target.value);
     };
@@ -17,6 +17,12 @@ export default class MoviesList extends Component {
 
     handlerClickSortBy = (event) => {
         this.props.setSortBy(event.target.value)
+        if (event.target.value === 'vote_average') {
+            this.props.movies.sort((a, b) => (b.vote_average > a.vote_average) ? 1 : ((a.vote_average > b.vote_average) ? -1 : 0));
+        } else {
+            this.props.movies.sort((a, b) => (b.release_date > a.release_date) ? 1 : ((a.release_date > b.release_date) ? -1 : 0));
+        }
+        console.log(this.props.movies, event.target.value)
     };
 
     render() {
