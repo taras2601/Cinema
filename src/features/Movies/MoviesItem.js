@@ -9,9 +9,9 @@ export default class MoviesItem extends Component {
                 <Link to={`movies/${id}`}>
                     <img className="img-thumbnail" src={poster} alt={title} />
                     <h5>{title}</h5>
-                    <p>{genres}</p>
-                    <p>{rating}</p>
-                    <p>{data}</p>
+                    <div className="small">{genres}</div>
+                    <div className="small">{rating}</div>
+                    <div className="small">{data}</div>
                 </Link>
             </div>                   
         );

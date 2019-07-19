@@ -21,12 +21,12 @@ export default class DetailePage extends Component {
                         <p><b>ALL VOTERS :</b> {selectedMovie.vote_count}</p>
                     </div>
                 </div>
-                <div className='row justify-content-center mt-4'>
+                <div className='row justify-content-center mt-4 bg-light'>
                         {movies.map(item =>
                             <div className="col-lg-2 col-md-3 col-sm-6 moviesItem" key={item.id}>
                                 <img className="img-thumbnail" alt={item.title} src={item.poster_path} />
                                 <h5>{item.title}</h5>
-                                <p>{item.release_date}</p>
+                                <p className="small">{item.release_date}</p>
                             </div>
                         )}
                 </div>

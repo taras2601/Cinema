@@ -27,48 +27,56 @@ export default class MoviesList extends Component {
 
     render() {
         const { searchBy, sortBy } = this.props;
-        const classBtnTitle = searchBy === 'title' ? 'btn btn-primary btn-sm' : 'btn btn-sm';
+        const classBtnTitle = searchBy === 'title' ? 'btn btn-primary btn-sm ml-2' : 'btn btn-sm ml-2';
         const classBtnGenres = searchBy === 'genres' ? 'btn btn-primary btn-sm ml-2' : 'btn btn-sm ml-2';
-        const classBtnRating = sortBy === 'rating' ? 'btn btn-link text-danger' : 'btn btn-link';
-        const classBtnData = sortBy === 'data' ? 'btn btn-link text-danger' : 'btn btn-link';
+        const classBtnRating = sortBy === 'vote_average' ? 'btn btn-link text-danger' : 'btn btn-link';
+        const classBtnData = sortBy === 'release_date' ? 'btn btn-link text-danger' : 'btn btn-link';
         
         return (
             <div className='container'>
                 <div className='row justify-content-center mt-2'>
-                    <div className="col-sm-11">
+                    <div className="col-sm-10">
                         <input className='form-control' onChange={this.handlerChangeSearch} />
                     </div>
-                    <div className="col-sm-1">
-                        <button className="btn btn-warning" onClick={this.handlerClickSearch}>Search</button>
+                    <div className="col-sm-2">
+                        <button className="btn btn-block btn-outline-primary" onClick={this.handlerClickSearch}>Search</button>
                     </div>
                 </div>
                 <div className='row justify-content-center mt-2'>
-                    <div className="col-sm-1">
-                        <p>SearchBy:</p>
-                    </div>
-                    <div className="col-sm-1">
-                        <button className={classBtnTitle} value='title' onClick={this.handlerClickSearchBy}>Title</button>
-                    </div>
-                    <div className="col-sm-1">
-                        <button className={classBtnGenres} value='genres' onClick={this.handlerClickSearchBy}>Genres</button>
-                    </div>
-                    <div className="col-sm-1">
-                        <p>SortBy:</p>
-                    </div>
-                    <div className="col-sm-1">
-                        <button className={classBtnRating} value='vote_average' onClick={this.handlerClickSortBy}>Rating</button>
-                    </div>
-                    <div className="col-sm-1">
-                        <button className={classBtnData} value='release_date' onClick={this.handlerClickSortBy}>Data</button>
+                <div className="col-sm-6">
+                    <div className="d-flex align-items-center">
+                        <div className="font-weight-bold">
+                            SearchBy:
+                        </div>
+                        <div>
+                            <button className={classBtnTitle} value='title' onClick={this.handlerClickSearchBy}>Title</button>
+                        </div>
+                        <div>
+                            <button className={classBtnGenres} value='genres' onClick={this.handlerClickSearchBy}>Genres</button>
+                        </div>
                     </div>
                 </div>
-                <div className='row justify-content-center'>
+                <div className="col-sm-6">
+                    <div className="d-flex align-items-center justify-content-end">
+                        <div className="font-weight-bold">
+                            SortBy:
+                        </div>
+                        <div>
+                            <button className={classBtnRating} value='vote_average' onClick={this.handlerClickSortBy}>Rating</button>
+                        </div>
+                        <div>
+                            <button className={classBtnData} value='release_date' onClick={this.handlerClickSortBy}>Data</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div className='row justify-content-center bg-light'>
                     {this.props.movies.map(item =>
                         <MoviesItem
                             key = {item.id} 
                             id = {item.id}
                             title = {item.title}
-                            genres = {item.genres.join(' ')}
+                            genres = {item.genres.join(', ')}
                             poster = {item.poster_path}
                             rating = {item.vote_average}
                             data = {item.release_date}
