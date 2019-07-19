@@ -43,32 +43,32 @@ export default class MoviesList extends Component {
                     </div>
                 </div>
                 <div className='row justify-content-center mt-2'>
-                <div className="col-sm-6">
-                    <div className="d-flex align-items-center">
-                        <div className="font-weight-bold">
-                            SearchBy:
-                        </div>
-                        <div>
-                            <button className={classBtnTitle} value='title' onClick={this.handlerClickSearchBy}>Title</button>
-                        </div>
-                        <div>
-                            <button className={classBtnGenres} value='genres' onClick={this.handlerClickSearchBy}>Genres</button>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-sm-6">
-                    <div className="d-flex align-items-center justify-content-end">
-                        <div className="font-weight-bold">
-                            SortBy:
-                        </div>
-                        <div>
-                            <button className={classBtnRating} value='vote_average' onClick={this.handlerClickSortBy}>Rating</button>
-                        </div>
-                        <div>
-                            <button className={classBtnData} value='release_date' onClick={this.handlerClickSortBy}>Data</button>
+                    <div className="col-sm-6">
+                        <div className="d-flex align-items-center">
+                            <div className="font-weight-bold">
+                                SearchBy:
+                            </div>
+                            <div>
+                                <button className={classBtnTitle} value='title' onClick={this.handlerClickSearchBy}>Title</button>
+                            </div>
+                            <div>
+                                <button className={classBtnGenres} value='genres' onClick={this.handlerClickSearchBy}>Genres</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div className="col-sm-6">
+                        <div className="d-flex align-items-center justify-content-end">
+                            <div className="font-weight-bold">
+                                SortBy:
+                            </div>
+                            <div>
+                                <button className={classBtnRating} value='vote_average' onClick={this.handlerClickSortBy}>Rating</button>
+                            </div>
+                            <div>
+                                <button className={classBtnData} value='release_date' onClick={this.handlerClickSortBy}>Data</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className='row justify-content-center bg-light'>
                     {this.props.movies.map(item =>
